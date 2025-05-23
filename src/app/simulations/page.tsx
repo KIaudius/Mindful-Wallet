@@ -3,8 +3,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Cpu, Laptop, Coffee, Car, Briefcase, AlertTriangle } from "lucide-react";
+import { Cpu, Laptop, Coffee, Car, Briefcase, AlertTriangle, Utensils } from "lucide-react";
 import { useState } from "react";
+import type { FC } from 'react';
+import type { LucideProps } from 'lucide-react';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,6 +18,9 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+
+// Define LucideIcon type for better type safety with icon components
+type LucideIcon = FC<LucideProps>;
 
 interface Simulation {
   id: string;
@@ -55,7 +60,7 @@ const simulations: Simulation[] = [
     id: "student-loan",
     title: "Student Loan Repayment",
     description: "Understand different strategies for managing and repaying student loans effectively.",
-    icon: Briefcase, // Placeholder, consider Briefcase for 'career/education' related
+    icon: Briefcase,
     details: "You have $30,000 in student loans with a 6% interest rate. Explore repayment plans like standard, income-driven, or making extra payments. How does each choice affect your monthly budget and total interest paid?",
     category: "Career",
   },
@@ -63,7 +68,7 @@ const simulations: Simulation[] = [
     id: "food-delivery",
     title: "Food Delivery Choices",
     description: "Analyze the cost and convenience of frequent food delivery orders.",
-    icon: Coffee, // Placeholder, should be food related
+    icon: Utensils, // Changed from Coffee to Utensils
     details: "You order food delivery 3 times a week, averaging $25 per order. This simulation explores the weekly/monthly cost versus cooking at home or meal prepping. What mindful choices can you make?",
     category: "Daily Expense",
   }
@@ -112,7 +117,7 @@ export default function SpendingSimulationsPage() {
       </div>
 
       {selectedSimulation && (
-        <AlertDialogContent className="bg-background border-border text-foreground">
+        <AlertDialogContent className="bg-background border-border text-foreground holographic-card">
           <AlertDialogHeader>
             <AlertDialogTitle className="text-2xl text-primary flex items-center gap-2">
               <selectedSimulation.icon className="w-6 h-6 text-primary neon-glow-primary" />
@@ -131,3 +136,4 @@ export default function SpendingSimulationsPage() {
     </div>
   );
 }
+

@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Brain, PlayCircle, CheckCircle } from "lucide-react";
 import { useState } from "react";
+import type { FC } from 'react';
+import type { LucideProps } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -14,6 +16,9 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog";
+
+// Define LucideIcon type for better type safety with icon components
+type LucideIcon = FC<LucideProps>;
 
 interface Meditation {
   id: string;

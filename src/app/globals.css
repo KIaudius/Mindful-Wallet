@@ -1,55 +1,101 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 270 67% 10%; /* #1A0F2E - approx #1A0033 */
-    --foreground: 270 15% 95%; /* Light purplish white for text */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
 
-    --card: 270 60% 15%; /* #221133 */
-    --card-foreground: 270 15% 90%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
 
-    --popover: 270 60% 15%; /* #221133 */
-    --popover-foreground: 270 15% 90%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 266 100% 50%; /* #6F00FF - Electric Indigo */
-    --primary-foreground: 270 15% 95%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 270 50% 20%; /* #261940 */
-    --secondary-foreground: 270 15% 90%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
 
-    --muted: 270 40% 25%; /* #33264D */
-    --muted-foreground: 270 15% 70%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 327 100% 50%; /* #FF00A8 - Hot Fuchsia */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
-    
-    --destructive: 0 72% 51%; /* default destructive red */
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 270 50% 30%; /* #392C5C */
-    --input: 270 50% 20%; /* #261940 - same as secondary */
-    --ring: 327 100% 50%; /* #FF00A8 - Accent for rings */
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
 
     --radius: 0.5rem;
 
-    /* Chart colors - adjust for dark theme visibility if needed */
     --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --chart-2: 160 70% 50%;
+    --chart-3: 300 70% 50%;
+    --chart-4: 40 70% 50%;
+    --chart-5: 0 70% 50%;
 
-    /* Sidebar specific colors for dark theme */
-    --sidebar-background: 270 70% 12%; /* #1E0F38 */
-    --sidebar-foreground: 270 15% 85%;
-    --sidebar-primary: 327 100% 50%; /* Accent for active/hover items */
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 270 60% 20%; /* Hover for sidebar items */
-    --sidebar-accent-foreground: 270 15% 95%;
-    --sidebar-border: 270 50% 25%; /* #33264D */
-    --sidebar-ring: 327 100% 50%;
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 240 4.9% 83.9%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 0 0% 98%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+  }
+
+  .dark {
+    --background: 270 100% 10%; /* #1A0033 - Very dark purple */
+    --foreground: 270 15% 85%; /* Light purple-ish grey text: #D4CFD9 */
+
+    --card: 270 80% 13%;      /* Darker card base: e.g., #1A0F29 */
+    --card-foreground: var(--foreground);
+
+    --popover: 270 70% 11%;    /* Even darker popover: e.g., #130A1F */
+    --popover-foreground: var(--foreground);
+
+    --primary: 267 100% 50%;  /* #6F00FF - Electric Indigo */
+    --primary-foreground: 267 100% 95%; /* Very light purple for contrast: #EDDFFF */
+
+    --secondary: 267 70% 40%; /* Muted Indigo: #5333B9 */
+    --secondary-foreground: 267 80% 90%; /* Lighter contrast for secondary: #DFD6F7 */
+
+    --muted: 270 30% 25%;     /* Muted Purple Grey: #362B40 */
+    --muted-foreground: 270 20% 65%; /* Lighter Muted Text: #938A9C */
+
+    --accent: 321 100% 50%;   /* #FF00A8 - Hot Fuchsia */
+    --accent-foreground: 321 100% 95%; /* Very light fuchsia/pink: #FFE5F5 */
+
+    --destructive: 0 80% 55%; /* A strong red: #DB2C2C */
+    --destructive-foreground: 0 0% 100%; /* White */
+
+    --border: 270 50% 20%;    /* Purple Border: #2E1A47 */
+    --input: 270 50% 18%;     /* Darker Purple Input BG: #28173D */
+    --ring: 321 100% 55%;     /* Brighter Fuchsia Ring: #FF19B2 */
+
+    /* Chart colors */
+    --chart-1: var(--primary);
+    --chart-2: var(--accent);
+    --chart-3: 180 100% 45%; /* Cyan #00E5E5 */
+    --chart-4: 45 100% 50%;  /* Yellow #FFBF00 */
+    --chart-5: 120 70% 45%;  /* Green #24C224 */
+
+    /* Sidebar specific theme variables */
+    --sidebar-background: 270 100% 8%; /* Slightly darker than main background: #110022 */
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--accent);
+    --sidebar-accent-foreground: var(--accent-foreground);
+    --sidebar-border: 270 70% 15%; /* Darker purple border for sidebar: #221433 */
+    --sidebar-ring: var(--ring);
   }
 }
 
@@ -63,23 +109,62 @@
   }
 }
 
-/* Holographic card style */
-.holographic-card {
-  @apply bg-card/80 backdrop-blur-sm shadow-[0_0_10px_1px_hsl(var(--accent)/30),_0_0_20px_3px_hsl(var(--primary)/20)] border-primary/30;
-}
+/* Custom global styles for Mindful Wallet theme */
+@layer utilities {
+  .text-glow-primary {
+    text-shadow: 0 0 5px hsl(var(--primary)/0.8), 0 0 10px hsl(var(--primary)/0.6), 0 0 15px hsl(var(--primary)/0.4);
+  }
 
-.neon-glow-accent {
-  filter: drop-shadow(0 0 3px hsl(var(--accent))) drop-shadow(0 0 6px hsl(var(--accent)/60));
-}
+  .text-glow-accent {
+    text-shadow: 0 0 5px hsl(var(--accent)/0.8), 0 0 10px hsl(var(--accent)/0.6), 0 0 15px hsl(var(--accent)/0.4);
+  }
 
-.neon-glow-primary {
-  filter: drop-shadow(0 0 3px hsl(var(--primary))) drop-shadow(0 0 6px hsl(var(--primary)/60));
-}
+  .neon-glow-primary {
+    filter: drop-shadow(0 0 4px hsl(var(--primary))) drop-shadow(0 0 8px hsl(var(--primary)/0.7));
+  }
 
-.text-glow-accent {
-  text-shadow: 0 0 5px hsl(var(--accent)/0.7), 0 0 10px hsl(var(--accent)/0.5);
-}
+  .neon-glow-accent {
+    filter: drop-shadow(0 0 4px hsl(var(--accent))) drop-shadow(0 0 8px hsl(var(--accent)/0.7));
+  }
 
-.text-glow-primary {
-  text-shadow: 0 0 5px hsl(var(--primary)/0.7), 0 0 10px hsl(var(--primary)/0.5);
+  .holographic-card {
+    @apply bg-card/60 border-border backdrop-blur-sm shadow-[0_0_10px_1px_hsl(var(--primary)/15),_inset_0_0_8px_hsl(var(--accent)/8)];
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .holographic-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, hsl(var(--primary)/0.03), hsl(var(--accent)/0.03), hsl(var(--primary)/0.03), hsl(var(--accent)/0.03));
+    background-size: 400% 400%;
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+    animation: holographic-gradient 15s ease infinite;
+  }
+  
+  /* Ensure card content is above the pseudo-element */
+  /* Select direct children that are elements, not style/script tags */
+  .holographic-card > *:not(style):not(script) {
+      position: relative;
+      z-index: 1;
+  }
+
+
+  .holographic-card:hover {
+     @apply shadow-[0_0_20px_3px_hsl(var(--primary)/25),_inset_0_0_12px_hsl(var(--accent)/15)];
+     /* transform: translateY(-2px); */ /* Optional: subtle lift effect */
+  }
+
+  @keyframes holographic-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 }
