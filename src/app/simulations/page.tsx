@@ -3,8 +3,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Cpu, Laptop, Coffee, Car, Briefcase, AlertTriangle, Utensils } from "lucide-react";
-import { useState } from "react";
+import { Cpu, Laptop, Coffee, Car, Briefcase, Utensils } from "lucide-react"; // Removed AlertTriangle as it wasn't used
 import type { FC } from 'react';
 import type { LucideProps } from 'lucide-react';
 import {
@@ -68,14 +67,14 @@ const simulations: Simulation[] = [
     id: "food-delivery",
     title: "Food Delivery Choices",
     description: "Analyze the cost and convenience of frequent food delivery orders.",
-    icon: Utensils, // Changed from Coffee to Utensils
+    icon: Utensils,
     details: "You order food delivery 3 times a week, averaging $25 per order. This simulation explores the weekly/monthly cost versus cooking at home or meal prepping. What mindful choices can you make?",
     category: "Daily Expense",
   }
 ];
 
 export default function SpendingSimulationsPage() {
-  const [selectedSimulation, setSelectedSimulation] = useState<Simulation | null>(null);
+  // selectedSimulation state is no longer needed as each dialog is self-contained.
 
   return (
     <div className="container mx-auto py-8">
@@ -105,35 +104,33 @@ export default function SpendingSimulationsPage() {
                   <Button 
                     variant="outline" 
                     className="w-full border-accent text-accent hover:bg-accent/10 hover:text-accent"
-                    onClick={() => setSelectedSimulation(sim)}
+                    // onClick={() => setSelectedSimulation(sim)} // No longer needed
                   >
                     Start Simulation
                   </Button>
                 </AlertDialogTrigger>
+                <AlertDialogContent className="bg-background border-border text-foreground holographic-card">
+                  <AlertDialogHeader>
+                    <AlertDialogTitle className="text-2xl text-primary flex items-center gap-2">
+                      <sim.icon className="w-6 h-6 text-primary neon-glow-primary" />
+                      {sim.title}
+                    </AlertDialogTitle>
+                    <AlertDialogDescription className="text-muted-foreground pt-2">
+                      {sim.details}
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel className="border-muted-foreground/50 text-muted-foreground hover:bg-muted/20">Close</AlertDialogCancel>
+                    <AlertDialogAction className="bg-primary hover:bg-primary/90 text-primary-foreground">Got it!</AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
               </AlertDialog>
             </CardFooter>
           </Card>
         ))}
       </div>
 
-      {selectedSimulation && (
-        <AlertDialogContent className="bg-background border-border text-foreground holographic-card">
-          <AlertDialogHeader>
-            <AlertDialogTitle className="text-2xl text-primary flex items-center gap-2">
-              <selectedSimulation.icon className="w-6 h-6 text-primary neon-glow-primary" />
-              {selectedSimulation.title}
-            </AlertDialogTitle>
-            <AlertDialogDescription className="text-muted-foreground pt-2">
-              {selectedSimulation.details}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel className="border-muted-foreground/50 text-muted-foreground hover:bg-muted/20">Close</AlertDialogCancel>
-            <AlertDialogAction className="bg-primary hover:bg-primary/90 text-primary-foreground">Got it!</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      )}
+      {/* The conditionally rendered AlertDialogContent based on selectedSimulation is removed */}
     </div>
   );
 }
-
